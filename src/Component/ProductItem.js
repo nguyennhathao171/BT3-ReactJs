@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import styles from "./ProductItem.module.css";
 class ProductItem extends Component {
+  // state = { isItem: false };
+  // showItem = () => {
+  //   this.setState({
+  //     isShowItem: true,
+  //   });
+  // };
   render() {
     const { name, price, image } = this.props.item;
     return (
       <div className={styles.item}>
         <img className={styles.img} alt="" src={image} />
-        <h4>Tên:{name}</h4>
-        <h4>Giá:{price}</h4>
+        <h2>Tên:{name}</h2>
+        <h4 style={{ marginTop: "40px" }}>Giá:{price}</h4>
         <button
           onClick={() => this.props.addToCart(this.props.item)}
           className={styles.btn}
         >
-          Thêm giỏ hàng
+          <span>Thêm vào giỏ</span>
         </button>
         <br />
         <br />
@@ -22,7 +28,7 @@ class ProductItem extends Component {
           }}
           className={styles.btn}
         >
-          Xem chi tiết
+          <span>Xem chi tiết</span>
         </button>
       </div>
     );

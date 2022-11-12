@@ -148,11 +148,17 @@ class ProductList extends Component {
     },
   ];
 
-  state = { selectedItem: null, isShowCart: false, cart: [] };
+  state = {
+    selectedItem: null,
+    isShowCart: false,
+    isShowItem: false,
+    cart: [],
+  };
 
   setSelectedItem = (dataFromChild) => {
     this.setState({
       selectedItem: dataFromChild,
+      isShowItem: true,
     });
   };
 
@@ -180,6 +186,18 @@ class ProductList extends Component {
   hideCart = () => {
     this.setState({
       isShowCart: false,
+    });
+  };
+
+  showItem = () => {
+    this.setState({
+      isShowItem: true,
+    });
+  };
+
+  hideItem = () => {
+    this.setState({
+      isShowItem: false,
     });
   };
 
@@ -261,7 +279,10 @@ class ProductList extends Component {
         </h3>
         <div className={styles.row}>{this.renderProducts()}</div>
         {this.state.selectedItem && (
-          <ProductDetail item={this.state.selectedItem} />
+          <ProductDetail
+            item={this.state.selectedItem}
+            hideItems={this.hideItem}
+          />
         )}
         {this.state.isShowCart && (
           <Cart

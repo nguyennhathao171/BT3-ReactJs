@@ -94,7 +94,9 @@ class Cart extends Component {
                 );
               })}
               <tr>
-                <td colSpan={7} className="text-end">Total : {this.calcTotalAmount()}</td>
+                <td colSpan={7} className="text-end">
+                  Total : {this.calcTotalAmount()}
+                </td>
               </tr>
             </tbody>
           </table>
